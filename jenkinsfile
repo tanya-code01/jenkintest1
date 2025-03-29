@@ -4,17 +4,17 @@ pipeline {
         nodejs 'nodejs'
     }
     stages {
-        stage 'Install'{
+        stage ('Install'){
             steps{
             sh 'npm install'
             }
         }
-        stage 'Build'{
+        stage ('Build'){
             steps{
                 sh 'npm run build'
             }
         }
-        stage 'Test'{
+        stage ('Test'){
             steps{
                sh 'npm test || echo "No tests defined"'
         }
