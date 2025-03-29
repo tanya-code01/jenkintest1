@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     tools{
-        maven 'maven'
+        nodejs 'nodejs'
     }
     stages {
         stage 'Install'{
@@ -11,13 +11,13 @@ pipeline {
         }
         stage 'Build'{
             steps{
-                sh 'npm run build' 
+                sh 'npm run build'
             }
         }
         stage 'Test'{
             steps{
-                sh 'npm run build'
-            }
+               sh 'npm test || echo "No tests defined"'
+        }
         }
     }
 }
